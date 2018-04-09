@@ -1,0 +1,16 @@
+{
+    "name": "jchook/uuid",
+    "description": "Fast, Secure UUIDs",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wes Roberts",
+            "email": "9p3g@a.zinc.email"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "files": ["lib/Uuid.php"]
+    }
+}

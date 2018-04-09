@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+
+require_once dirname(__DIR__) . '/lib/Uuid.php';
+
+define('LIMIT', 200000);
+
+function report($start, $name = '') {
+	$ops = LIMIT / (microtime(true) - $start);
+	return sprintf("%10.2f ops/sec   %s\n", $ops, $name);
+}
+
+// Measure Our lib
+$start = microtime(true);
+for ($i=0; $i<LIMIT; $i++) Jchook\Uuid::v4();
+echo report($start, 'Uuid::v4');
+
+// Measure uuid_create
+$start = microtime(true);
+for ($i=0; $i<LIMIT; $i++) uuid_create();
+echo report($start, 'uuid_create');
